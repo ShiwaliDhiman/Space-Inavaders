@@ -55,7 +55,7 @@ for i in range(number_of_enemies):
 bulletImg = pygame.image.load("resources/bullet.png")
 bulletX = 0
 bulletY = 480
-bulletY_change = 0.95
+bulletY_change = 1.1
 bullet_state = "ready"
 
 # score
@@ -141,7 +141,7 @@ while running:
                 playerX_change = 0
 
     # RGB = Red,Green,Blue
-    screen.fill((0, 0, 0))
+    #screen.fill((0, 0, 0))
 
     # background image
     screen.blit(background, (0, 0))
@@ -159,7 +159,6 @@ while running:
         if enemyY[i] > 440:
             for j in range(number_of_enemies):
                 enemyY[j] = 2000
-            # game_over_text()
             break
 
         enemyX[i] += enemyX_change[i]
@@ -194,6 +193,8 @@ while running:
 
     player(playerX, playerY)
     show_score(textX, textY)
+
+    # game over text
     if enemyY[5] >= 2000:
         screen.fill((0, 0, 0))
         game_over_text()
